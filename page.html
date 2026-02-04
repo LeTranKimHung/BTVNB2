@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="main.js">
-    </script>
+    <title>Quản lý Posts - JSON Server</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        /* Style cho yêu cầu hiển thị gạch ngang khi xóa mềm */
+        .deleted-row { 
+            text-decoration: line-through; 
+            color: #888; 
+            background-color: #f9f9f9; 
+        }
+        .form-group { margin-bottom: 10px; }
+        input[type="text"], input[type="number"] { padding: 5px; width: 200px; }
+    </style>
 </head>
 <body>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>TITLE</th>
-                    <th>VIEWS</th>
-                </tr>
-            </thead>
-            <tbody id="table_body">
-                
+
+    <h2>Quản lý bài viết</h2>
+    
+    <div class="form-group">
+        <label>ID (Tự động):</label>
+        <input type="text" id="txt_id" readonly placeholder="ID tự tăng...">
+    </div>
+    <div class="form-group">
+        <label>Tiêu đề:</label>
+        <input type="text" id="txt_title">
+    </div>
+    <div class="form-group">
+        <label>Lượt xem:</label>
+        <input type="number" id="txt_views">
+    </div>
+    <button onclick="Save()">Lưu bài viết</button>
+    <button onclick="clearForm()">Làm mới form</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Lượt xem</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
             </tbody>
-        </table>
-    </div>
-    <div>
-        <input type="text" id="txt_id" placeholder="id"/>
-        <input type="text" id="txt_title" placeholder="title"/>
-        <input type="text" id="txt_views" placeholder="views"/>
-        <input type="submit" value="Save" onclick="Save()"/>
-    </div>
+    </table>
+
+    <script src="main.js"></script>
 </body>
 </html>
